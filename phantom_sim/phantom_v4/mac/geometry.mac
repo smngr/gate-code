@@ -1,0 +1,59 @@
+# WORLD GEOMETRY
+
+/gate/world/geometry/setXLength .5 m
+/gate/world/geometry/setYLength .5 m
+/gate/world/geometry/setZLength .5 m
+
+### PHANTOM GEOMETRY
+
+/gate/geometry/setMaterialDatabase /home/smanger/gate/code/phantom_v4/data/GateMaterials.db
+
+# Define Phantom
+
+# Phantom Body
+
+/gate/world/daughters/name PhantomBody
+/gate/world/daughters/insert cylinder
+/gate/PhantomBody/geometry/setRmax 3.75 cm
+/gate/PhantomBody/geometry/setRmin 0. cm
+/gate/PhantomBody/geometry/setHeight 7.5 cm
+/gate/PhantomBody/placement/setTranslation 0.0 0.0 0.0 cm
+/gate/PhantomBody/setMaterial Polyethylene
+/gate/PhantomBody/vis/setColor blue
+
+#/gate/geometry/setIonisationPotential Polyethylene #75 eV
+
+# Insert 1 - Lung
+
+/gate/PhantomBody/daughters/name Lung
+/gate/PhantomBody/daughters/insert box
+/gate/Lung/geometry/setXLength 2.0 cm
+/gate/Lung/geometry/setYLength 1.0 cm
+/gate/Lung/geometry/setZLength 2.0 cm
+/gate/Lung/placement/setTranslation 1.5 -1.0 0.0 cm
+/gate/Lung/setMaterial LungMoby
+/gate/Lung/vis/setColor red
+
+# Insert 2 - Lung
+
+/gate/PhantomBody/daughters/name Bone
+/gate/PhantomBody/daughters/insert box
+/gate/Bone/geometry/setXLength 2.0 cm
+/gate/Bone/geometry/setYLength 1.0 cm
+/gate/Bone/geometry/setZLength 2.0 cm
+/gate/Bone/placement/setTranslation 1.5 1.0 0.0 cm
+/gate/Bone/setMaterial RibBone
+/gate/Bone/vis/setColor white
+
+# Film piece
+
+/gate/PhantomBody/daughters/name Film
+/gate/PhantomBody/daughters/insert box
+/gate/Film/geometry/setXLength 3.0 cm
+/gate/Film/geometry/setYLength 4. cm
+/gate/Film/geometry/setZLength .278 mm
+/gate/Film/placement/setTranslation -1.5 0.139 0.0 cm
+/gate/Film/setMaterial Water
+/gate/Film/vis/setColor yellow
+/gate/Film//placement/setRotationAxis 0 1 0
+/gate/Film/placement/setRotationAngle 3 deg

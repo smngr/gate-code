@@ -1,0 +1,26 @@
+# Visualisation
+
+# /control/execute visu.mac
+
+# VERBOSE
+
+# /control/execute verbose.mac
+
+# Visualisation
+
+/control/execute main-poly-prepare.mac
+
+/gate/geometry/setIonisationPotential Polyethylene 57.4 eV
+/gate/actor/Range/save                         ../output/sp_HDPE/HDPE_5cm_I=57p4.txt
+/gate/run/initialize
+/gate/application/start
+
+#/gate/geometry/setIonisationPotential Polyethylene 66.7 eV
+#/gate/actor/Range/save                          ../output/sp_HDPE/HDPE_5cm_I=66p7.txt
+#/gate/run/initialize
+#/gate/application/start
+
+/gate/geometry/setIonisationPotential Polyethylene 55.8 eV
+/gate/actor/Range/save                          ../output/sp_HDPE/HDPE_5cm_I=55p8.txt
+/gate/run/initialize
+/gate/application/start

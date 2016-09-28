@@ -1,0 +1,11 @@
+/vis/open                             OGLIQt
+/vis/drawVolume
+/vis/viewer/flush
+/tracking/storeTrajectory             1
+/vis/scene/add/trajectories
+/vis/viewer/set/viewpointThetaPhi 0 60
+/vis/viewer/zoom 3
+/vis/viewer/set/style w
+/gate/world/vis/setVisible true
+/vis/scene/add/axes
+/vis/scene/endOfEventAction accumulate 100

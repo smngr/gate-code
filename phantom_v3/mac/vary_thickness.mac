@@ -1,0 +1,80 @@
+
+#/control/execute visu.mac
+/control/execute prepare.mac
+
+/gate/geometry/setIonisationPotential Polyethylene 112.6 eV
+
+#/gate/cavity/geometry/setRmax .5 cm
+# /gate/sample/geometry/setRmax .5 cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/xCT/10mm_HDPE_Film.txt
+
+#/gate/run/initialize
+#/gate/application/start
+
+#/gate/cavity/geometry/setRmax .75 cm
+# /gate/sample/geometry/setRmax .75 cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/xCT/15mm_HDPE_Film.txt
+
+#/gate/run/initialize
+#/gate/application/start
+
+#/gate/cavity/geometry/setRmax 1. cm
+
+
+# /gate/sample/geometry/setRmax 1. cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/xCT/20mm_HDPE_Film.txt
+
+/gate/run/initialize
+/gate/application/start
+
+#/gate/cavity/geometry/setRmax 1.25 cm
+# /gate/sample/geometry/setRmax 1.25 cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/xCT/25mm_HDPE_Film.txt
+
+#/gate/run/initialize
+#/gate/application/start
+
+/gate/cavity/geometry/setRmax 1.5 cm
+# /gate/sample/geometry/setRmax 1.5 cm
+/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/xCT/30mm_HDPE_Film.txt
+
+/gate/run/initialize
+/gate/application/start
+
+
+/gate/geometry/setIonisationPotential Polyethylene 57.4 eV
+
+#/gate/cavity/geometry/setRmax .5 cm
+# /gate/sample/geometry/setRmax .5 cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/real/10mm_HDPE_Film.txt
+
+#/gate/run/initialize
+#/gate/application/start
+
+#/gate/cavity/geometry/setRmax .75 cm
+# /gate/sample/geometry/setRmax .75 cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/real/15mm_HDPE_Film.txt
+
+#/gate/run/initialize
+#/gate/application/start
+
+#/gate/cavity/geometry/setRmax 1. cm
+# /gate/sample/geometry/setRmax 1. cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/real/20mm_HDPE_Film.txt
+
+/gate/run/initialize
+/gate/application/start
+
+#/gate/cavity/geometry/setRmax 1.25 cm
+# /gate/sample/geometry/setRmax 1.25 cm
+#/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/real/25mm_HDPE_Film.txt
+
+#/gate/run/initialize
+#/gate/application/start
+
+/gate/cavity/geometry/setRmax 1.5 cm
+# /gate/sample/geometry/setRmax 1.5 cm
+/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/real/30mm_HDPE_Film.txt
+
+/gate/run/initialize
+/gate/application/start

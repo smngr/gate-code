@@ -1,0 +1,12 @@
+
+#/control/execute visu0.mac
+#/control/execute verbose.mac
+
+/control/execute geometry_cylinders.mac
+
+/control/execute physics.mac
+
+#/gate/output/allowNoOutput
+/gate/application/setTotalNumberOfPrimaries 100000
+/gate/run/initialize
+/gate/application/start

@@ -1,0 +1,20 @@
+
+#/control/execute visu.mac
+/control/execute prepare.mac
+
+/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/HDPE/HDPE_I=Default.txt
+
+/gate/run/initialize
+/gate/application/start
+
+/gate/geometry/setIonisationPotential PMMA 47.177 eV
+
+/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/PMMA/PMMA-MeasSP-95MeV-thinfilm.txt
+
+/gate/run/initialize
+/gate/application/start
+
+/gate/geometry/setIonisationPotential PMMA 116.2 eV
+/gate/actor/FilmDose/save                          /media/sf_Desktop/film/sample/PMMA/PMMA-AssSP-95MeV-thinfilm.txt
+/gate/run/initialize
+/gate/application/start

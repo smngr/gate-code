@@ -1,0 +1,103 @@
+# Visualisation
+
+# /control/execute visu.mac
+
+# VERBOSE
+
+/control/execute verbose.mac
+
+# WORLD GEOMETRY
+
+/gate/world/geometry/setXLength .5 m
+/gate/world/geometry/setYLength .5 m
+/gate/world/geometry/setZLength 1.0 m
+
+### PHANTOM GEOMETRY
+
+/gate/geometry/setMaterialDatabase ../data/GateMaterials.db
+
+# Define Water Tank
+
+/gate/world/daughters/name Tank
+/gate/world/daughters/insert box
+/gate/Tank/geometry/setXLength 10. cm
+/gate/Tank/geometry/setYLength 10. cm
+/gate/Tank/geometry/setZLength 60. cm
+/gate/Tank/placement/setTranslation 0.0 0.0 20. cm
+/gate/Tank/setMaterial Water
+/gate/Tank/vis/setColor blue
+
+/gate/geometry/setIonisationPotential Water 75 eV
+
+# Define Material Sample
+
+/gate/world/daughters/name Sample
+/gate/world/daughters/insert box
+/gate/Sample/geometry/setXLength  10. cm
+/gate/Sample/geometry/setYLength  10. cm
+/gate/Sample/geometry/setZLength   5. cm
+/gate/Sample/setMaterial Polyethylene
+/gate/Sample/placement/setTranslation 0.0 0.0 -12.5 cm
+/gate/Tank/vis/setColor yellow
+
+#=====================================================
+# PHYSICS - copied from RT example 6
+#=====================================================
+
+/gate/physics/addPhysicsList QBBC
+
+/gate/physics/Gamma/SetCutInRegion      world 1 mm
+/gate/physics/Electron/SetCutInRegion   world 1 mm
+/gate/physics/Positron/SetCutInRegion   world 1 mm
+
+/gate/physics/Gamma/SetCutInRegion      Tank 1 mm
+/gate/physics/Electron/SetCutInRegion   Tank 1 mm
+/gate/physics/Positron/SetCutInRegion   Tank 1 mm
+
+/gate/physics/SetMaxStepSizeInRegion world .1 mm
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter deuteron
+/gate/physics/ActivateStepLimiter triton
+/gate/physics/ActivateStepLimiter alpha
+/gate/physics/ActivateStepLimiter GenericIon
+
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter e-
+
+# Add an Actor
+
+#=====================================================
+# Statistics actor
+#=====================================================
+
+/gate/actor/addActor DoseActor Range
+
+/gate/actor/Range/attachTo Tank
+/gate/actor/Range/setPosition                   0. 0. 0. cm
+#/gate/actor/Range/setSize 40 50 0.028 mm
+#/gate/actor/Range/setVoxelSize 0.5 0.5 0.028 mm
+/gate/actor/Range/stepHitType random
+/gate/actor/Range/setResolution 1 1 600
+/gate/actor/Range/enableEdep                    true
+
+/gate/actor/Range/saveEveryNSeconds             60
+
+# DEFINE SOURCES
+
+/gate/source/addSource beam
+/gate/source/beam/gps/particle proton
+/gate/source/beam/gps/energytype Mono
+/gate/source/beam/gps/monoenergy 250 MeV
+
+/gate/source/beam/gps/angtype iso
+/gate/source/beam/gps/mintheta 0. deg
+/gate/source/beam/gps/maxtheta 0. deg
+/gate/source/beam/gps/minphi 0. deg
+/gate/source/beam/gps/maxphi 360. deg
+
+/gate/source/beam/gps/type Plane
+/gate/source/beam/gps/shape Circle
+/gate/source/beam/gps/radius .5 cm
+/gate/source/beam/gps/centre 0. 0. -25. cm
+
+/gate/application/setTotalNumberOfPrimaries 10000

@@ -1,0 +1,21 @@
+# Define Material
+
+/gate/world/daughters/name Lung
+/gate/world/daughters/insert box
+/gate/Lung/geometry/setXLength  10. cm
+/gate/Lung/geometry/setYLength  5. cm
+/gate/Lung/geometry/setZLength   5. cm
+/gate/Lung/setMaterial  LungMoby
+/gate/Lung/placement/setTranslation 0.0 -2.5 -12.5 cm
+/gate/Tank/vis/setColor yellow
+#/gate/geometry/setIonisationPotential PVC 134.23 eV
+
+/gate/world/daughters/name Bone
+/gate/world/daughters/insert box
+/gate/Bone/geometry/setXLength  10. cm
+/gate/Bone/geometry/setYLength  5. cm
+/gate/Bone/geometry/setZLength   5. cm
+/gate/Bone/setMaterial RibBone
+/gate/Bone/placement/setTranslation 0.0 2.5 -12.5 cm
+/gate/Tank/vis/setColor green
+#/gate/geometry/setIonisationPotential PVC 134.23 eV

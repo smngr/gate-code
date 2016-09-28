@@ -1,0 +1,21 @@
+# Define Material Sample
+
+/gate/world/daughters/name Sample
+/gate/world/daughters/insert box
+/gate/Sample/geometry/setXLength  10. cm
+/gate/Sample/geometry/setYLength  5. cm
+/gate/Sample/geometry/setZLength   5. cm
+/gate/Sample/setMaterial PVC
+/gate/Sample/placement/setTranslation 0.0 -2.5 -12.5 cm
+/gate/Tank/vis/setColor yellow
+#/gate/geometry/setIonisationPotential PVC 134.23 eV
+
+/gate/world/daughters/name Sample
+/gate/world/daughters/insert box
+/gate/Sample/geometry/setXLength  10. cm
+/gate/Sample/geometry/setYLength  5. cm
+/gate/Sample/geometry/setZLength   5. cm
+/gate/Sample/setMaterial PVC
+/gate/Sample/placement/setTranslation 0.0 2.5 -12.5 cm
+/gate/Tank/vis/setColor green
+#/gate/geometry/setIonisationPotential PVC 134.23 eV
