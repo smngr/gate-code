@@ -500,3 +500,35 @@ EBT-3-Polyester: d = 1.35 g/cm3;  n=3 ; state=Solid
         +el: name=Hydrogen   ; f=0.364
         +el: name=Carbon     ; f=0.454
         +el: name=Oxygen     ; f=0.182
+
+WT1: d = 1.0 g/cm3; n=6 ; state=Solid
+        +el: name=Hydrogen   ; f=0.0841
+        +el: name=Carbon     ; f=0.6797
+        +el: name=Nitrogen   ; f=0.0227
+        +el: name=Oxygen     ; f=0.1887
+        +el: name=Chlorine   ; f=0.0013
+        +el: name=Calcium    ; f=0.0235
+
+AP7: d = 0.92 g/cm3; n=6 ; state=Solid
+        +el: name=Hydrogen   ; f=0.0836
+        +el: name=Carbon     ; f=0.6914
+        +el: name=Nitrogen   ; f=0.0236
+        +el: name=Oxygen     ; f=0.1693
+        +el: name=Chlorine   ; f=0.0014
+        +el: name=Fluorine   ; f=0.0307
+
+SB5: d = 1.84 g/cm3; n=6 ; state=Solid
+        +el: name=Hydrogen   ; f=0.0260
+        +el: name=Carbon     ; f=0.3058
+        +el: name=Nitrogen   ; f=0.0098
+        +el: name=Oxygen     ; f=0.3893
+        +el: name=Chlorine   ; f=0.0006
+        +el: name=Calcium    ; f=0.2685
+
+RB2: d = 1.40 g/cm3; n=2 ;
+        +mat: name=SB5       ; f=0.465
+        +mat: name=WT1       ; f=0.535
+
+LN10: d = 0.3 g/cm3; n=2;
+        +mat: name=WT1       ; f=0.3
+        +mat: name=Air       ; f=0.7

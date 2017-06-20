@@ -1,0 +1,35 @@
+#=====================================================
+# PHYSICS - copied from RT example 6
+#=====================================================
+
+/gate/physics/addPhysicsList QBBC
+
+/gate/physics/Gamma/SetCutInRegion      world 1 mm
+/gate/physics/Electron/SetCutInRegion   world 1 mm
+/gate/physics/Positron/SetCutInRegion   world 1 mm
+
+/gate/physics/SetMaxStepSizeInRegion world .1 mm
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter deuteron
+/gate/physics/ActivateStepLimiter triton
+/gate/physics/ActivateStepLimiter alpha
+/gate/physics/ActivateStepLimiter GenericIon
+
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter e-
+
+# DOSE ACTOR
+
+/gate/actor/addActor DoseActor film2
+/gate/actor/film2/attachTo film2
+/gate/actor/film2/setPosition                   0. 0. 0. cm
+/gate/actor/film2/stepHitType random
+/gate/actor/film2/setResolution 140 240 1
+
+/gate/actor/film2/enableDose                    true
+/gate/actor/film2/enableDoseToWater             true
+/gate/actor/film2/enableEdep                    true
+/gate/actor/film2/enableNumberOfHits            true
+
+/gate/actor/film2/saveEveryNSeconds             60
+#/gate/actor/film2/save /media/sf_linux_share/Data/GATE_Simulations/wedge/film2.txt

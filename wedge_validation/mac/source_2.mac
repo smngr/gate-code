@@ -1,0 +1,23 @@
+# DEFINE SOURCES
+
+/gate/source/addSource beam
+/gate/source/beam/gps/particle proton
+/gate/source/beam/gps/ene/type Gauss
+/gate/source/beam/gps/ene/mono 90 MeV #55 MeV #80 MeV #78 MeV
+/gate/source/beam/gps/ene/sigma 2.3 MeV
+
+/gate/source/beam/gps/type Plane
+/gate/source/beam/gps/shape Circle
+/gate/source/beam/gps/radius 0.25 cm
+
+/gate/source/beam/gps/angtype iso
+/gate/source/beam/gps/mintheta 0. deg
+/gate/source/beam/gps/maxtheta 360. deg
+/gate/source/beam/gps/minphi 0. deg
+/gate/source/beam/gps/maxphi 0. deg
+/gate/source/beam/gps/posrot1  0 0 1 #0.017240 0 0.99985 #0 0.01745 #0.707 0 -0.707 (cos theta, 0, sin theta)
+#/gate/source/beam/gps/posrot2 -1 0 0
+
+/gate/source/beam/gps/centre 15. 0. 0. cm #0.262 cm
+
+#/gate/source/beam/visualize 1000 cyan 2

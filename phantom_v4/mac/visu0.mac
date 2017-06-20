@@ -1,9 +1,9 @@
-/vis/open                             OGLIQt
+/vis/open                             OGLI
 /vis/drawVolume
 /vis/viewer/flush
 /tracking/storeTrajectory             1
 /vis/scene/add/trajectories
-/vis/viewer/set/viewpointThetaPhi 0 60
+/vis/viewer/set/viewpointThetaPhi 90 60
 /vis/viewer/zoom 3
 /vis/viewer/set/style w
 /gate/world/vis/setVisible true

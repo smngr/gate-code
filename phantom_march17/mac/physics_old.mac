@@ -1,0 +1,72 @@
+#=====================================================
+# PHYSICS - copied from RT example 6
+#=====================================================
+
+/gate/physics/addPhysicsList QBBC
+
+/gate/physics/Gamma/SetCutInRegion      world 1 mm
+/gate/physics/Electron/SetCutInRegion   world 1 mm
+/gate/physics/Positron/SetCutInRegion   world 1 mm
+
+/gate/physics/SetMaxStepSizeInRegion world .1 mm
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter deuteron
+/gate/physics/ActivateStepLimiter triton
+/gate/physics/ActivateStepLimiter alpha
+/gate/physics/ActivateStepLimiter GenericIon
+
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter e-
+
+# DOSE ACTOR
+
+/gate/actor/addActor DoseActor Film1
+
+/gate/actor/Film1/attachTo active1
+/gate/actor/Film1/setPosition                   0. 0. 0. cm
+/gate/actor/Film1/stepHitType post
+/gate/actor/Film1/setResolution 140 48 1
+
+#/gate/actor/Film1/addFilter proton
+/gate/actor/Film1/enableDose                    true
+/gate/actor/Film1/enableDoseToWater             true
+/gate/actor/Film1/enableEdep                    true
+/gate/actor/Film1/enableNumberOfHits            true
+
+/gate/actor/Film1/saveEveryNSeconds             60
+/gate/actor/Film1/save /media/sf_linux_share/Data/GATE_Simulations/wedge/film1.root
+
+/gate/actor/addActor DoseActor film2
+/gate/actor/film2/attachTo active2
+/gate/actor/film2/setPosition                   0. 0. 0. cm
+/gate/actor/film2/stepHitType post
+/gate/actor/film2/setResolution 128 48
+
+/gate/actor/film2/addFilter proton
+/gate/actor/film2/enableDose                    true
+/gate/actor/film2/enableDoseToWater             true
+/gate/actor/film2/enableEdep                    true
+/gate/actor/film2/enableNumberOfHits            true
+
+# DEFINE SOURCES
+
+/gate/source/addSource beam
+/gate/source/beam/gps/particle proton
+/gate/source/beam/gps/ene/type Gauss
+/gate/source/beam/gps/ene/mono 80 MeV
+/gate/source/beam/gps/ene/sigma 2.3 MeV
+
+/gate/source/beam/gps/type Plane
+/gate/source/beam/gps/shape Circle
+/gate/source/beam/gps/radius 4.25 cm
+
+/gate/source/beam/gps/angtype iso
+/gate/source/beam/gps/mintheta 0. deg
+/gate/source/beam/gps/maxtheta 360. deg
+/gate/source/beam/gps/minphi 0. deg
+/gate/source/beam/gps/maxphi 360. deg
+/gate/source/beam/gps/posrot1 0 0 90
+
+/gate/source/beam/gps/centre 15. 0. 0 cm
+
+#/gate/source/beam/visualize 1000 cyan 2

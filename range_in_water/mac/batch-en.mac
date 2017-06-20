@@ -1,0 +1,13 @@
+#/control/execute verbose.mac
+/control/execute Geometry.mac
+
+/gate/source/beam/gps/energytype Mono
+/gate/source/beam/gps/monoenergy {en} MeV
+
+/gate/application/setTotalNumberOfPrimaries 100000
+
+/gate/actor/Range/save {out}
+/gate/run/initialize
+/gate/application/start
+
+exit

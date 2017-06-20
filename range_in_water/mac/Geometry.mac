@@ -14,7 +14,7 @@
 /gate/world/daughters/insert box
 /gate/Tank/geometry/setXLength 10. cm
 /gate/Tank/geometry/setYLength 10. cm
-/gate/Tank/geometry/setZLength 60 cm
+/gate/Tank/geometry/setZLength 6 cm
 /gate/Tank/placement/setTranslation 0.0 0.0 20 cm
 /gate/Tank/setMaterial Water
 /gate/Tank/vis/setColor blue
@@ -52,24 +52,24 @@
 /gate/actor/Range/attachTo Tank
 /gate/actor/Range/setPosition                   0. 0. 0. cm
 /gate/actor/Range/stepHitType random
-/gate/actor/Range/setResolution 1 2 6000
+/gate/actor/Range/setResolution 1 1 600
 /gate/actor/Range/enableDose                    true
 /gate/actor/Range/enableDoseToWater             true
 /gate/actor/Range/enableEdep                    true
 /gate/actor/Range/enableNumberOfHits            true
-
 /gate/actor/Range/saveEveryNSeconds             60
 
 # DEFINE SOURCES
 
 /gate/source/addSource beam
 /gate/source/beam/gps/particle proton
-/gate/source/beam/gps/energytype Mono
-/gate/source/beam/gps/monoenergy 250 MeV
 
-#/gate/source/beam/gps/energytype UserSpectrum
-#/gate/source/beam/gps/setSpectrumFile ../data/EnergySpread.txt
-#/gate/source/beam/setIntensity 1
+#/gate/source/beam/gps/energytype Mono
+#/gate/source/beam/gps/monoenergy 191.8 MeV
+
+#/gate/source/beam/gps/ene/type Gauss
+#/gate/source/beam/gps/ene/mono 125 MeV
+#/gate/source/beam/gps/ene/sigma 1.56 MeV
 
 /gate/source/beam/gps/angtype iso
 /gate/source/beam/gps/mintheta 0. deg

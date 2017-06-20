@@ -1,0 +1,20 @@
+#/control/execute visu0.mac
+#/control/execute verbose.mac
+
+/control/execute geometry_cylinders.mac
+
+/gate/geometry/setIonisationPotential Polyethylene 60.56 eV #60.56 eV
+/gate/geometry/setIonisationPotential SB5 36.49 eV
+/gate/geometry/setIonisationPotential LN10 147.16 eV
+
+/control/execute physics.mac
+
+/gate/application/setTotalNumberOfPrimaries 1000000
+
+/gate/actor/addActor SimulationStatisticActor Stats
+/gate/actor/Stats/save  /media/sf_linux_share/Data/GATE_Simulations/phantom-inserts/full_phantom_LN10_SB5_xCT_Stats.txt
+
+/gate/actor/Range/save /media/sf_linux_share/Data/GATE_Simulations/phantom-inserts/phantom_redrawn_10m_xCT_thin.txt
+
+/gate/run/initialize
+/gate/application/start

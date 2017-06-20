@@ -1,0 +1,119 @@
+# WORLD GEOMETRY
+
+/gate/world/geometry/setXLength .5 m
+/gate/world/geometry/setYLength .5 m
+/gate/world/geometry/setZLength .5 m
+
+### PHANTOM GEOMETRY
+
+/gate/geometry/setMaterialDatabase /media/sf_linux_share/code/Gate/phantom_v4/data/GateMaterials.db
+
+# Define Phantom
+
+# Phantom
+
+/gate/world/daughters/name Phantom
+/gate/world/daughters/insert cylinder
+/gate/Phantom/geometry/setRmax 3.75 cm
+/gate/Phantom/geometry/setRmin 0. cm
+/gate/Phantom/geometry/setHeight 7.5 cm
+/gate/Phantom/placement/setTranslation 0.0 0.0 0.0 cm
+#/gate/Phantom/placement/setRotationAxis 0 0 0
+#/gate/Phantom/placement/setRotationAngle 0 deg
+/gate/Phantom/setMaterial Polyethylene
+/gate/Phantom/vis/setColor blue
+
+#/gate/geometry/setIonisationPotential Polyethylene #75 eV
+
+# Define film ring
+
+# Film Piece 1
+
+/gate/Phantom/daughters/name film1
+/gate/Phantom/daughters/insert wedge
+/gate/film1/geometry/setXLength 35 mm
+/gate/film1/geometry/setNarrowerXLength 20 mm
+/gate/film1/geometry/setYLength 12 mm
+/gate/film1/geometry/setZLength 10 mm # .278 mm
+/gate/film1/placement/setRotationAxis +0.00872686779 0 1
+/gate/film1/placement/setRotationAngle 180 deg
+/gate/film1/placement/setTranslation -8.75 -24.0 -10.0655  mm
+/gate/film1/setMaterial EBT-3-Active #EBT-3-Polyester
+/gate/film1/vis/setColor red
+
+/gate/film1/daughters/name active1
+/gate/film1/daughters/insert wedge
+/gate/active1/geometry/setXLength 35 mm
+/gate/active1/geometry/setNarrowerXLength 20 mm
+/gate/active1/geometry/setYLength 12 mm
+/gate/active1/geometry/setZLength .278 mm
+/gate/active1/placement/setTranslation 0.0 0.0 0.0 cm
+/gate/active1/setMaterial EBT-3-Active
+
+# Film 2
+
+/gate/Phantom/daughters/name film2
+/gate/Phantom/daughters/insert box
+/gate/film2/geometry/setXLength 35 mm
+/gate/film2/geometry/setYLength 32 mm
+/gate/film2/geometry/setZLength 10 mm #.278 mm
+/gate/film2/placement/setTranslation -12.5 -2. -10. mm
+/gate/film2/setMaterial EBT-3-Active #EBT-3-Polyester
+/gate/film2/placement/setRotationAxis 0 1 0
+/gate/film2/placement/setRotationAngle +1 deg
+
+/gate/film2/daughters/name active2
+/gate/film2/daughters/insert box
+/gate/active2/geometry/setXLength 35 mm
+/gate/active2/geometry/setYLength 32 mm
+/gate/active2/geometry/setZLength .278 mm
+/gate/active2/placement/setTranslation 0.0 0.0 0.0 cm
+/gate/active2/setMaterial EBT-3-Active
+
+# Film 3
+
+/gate/Phantom/daughters/name film3
+/gate/Phantom/daughters/insert wedge
+/gate/film3/geometry/setXLength 35 mm
+/gate/film3/geometry/setNarrowerXLength 16 mm
+/gate/film3/geometry/setYLength 16 mm
+/gate/film3/geometry/setZLength 10 mm # .278 mm
+/gate/film3/placement/setRotationAxis 0 1 0
+/gate/film3/placement/setRotationAngle 181 deg
+/gate/film3/placement/setTranslation -7.75 +22.0 -10.0655 mm
+/gate/film3/setMaterial EBT-3-Active #EBT-3-Polyester
+/gate/film3/vis/setColor yellow
+
+/gate/film3/daughters/name active3
+/gate/film3/daughters/insert wedge
+/gate/active3/geometry/setXLength 35 mm
+/gate/active3/geometry/setNarrowerXLength 16 mm
+/gate/active3/geometry/setYLength 16 mm
+/gate/active3/geometry/setZLength .278 mm #.028 mm
+/gate/active3/placement/setTranslation 0.0 0.0 0.0 cm
+/gate/active3/setMaterial EBT-3-Active
+
+
+# Insert 1 - Lung
+
+/gate/Phantom/daughters/name Lung
+/gate/Phantom/daughters/insert cylinder
+/gate/Lung/geometry/setRmax 0.75 cm
+/gate/Lung/geometry/setRmin 0. cm
+/gate/Lung/geometry/setHeight 1.5 cm
+/gate/Lung/placement/setTranslation 1.75 -1.25 -0.75 cm
+/gate/Lung/setMaterial LN10
+/gate/Lung/vis/setColor red
+
+# Insert 2 - Bone
+
+/gate/Phantom/daughters/name Bone
+/gate/Phantom/daughters/insert cylinder
+/gate/Bone/geometry/setRmax 0.75 cm
+/gate/Bone/geometry/setRmin 0. cm
+/gate/Bone/geometry/setHeight 1.5 cm
+/gate/Bone/placement/setTranslation 1.75 1.25 -0.75 cm
+/gate/Bone/setMaterial SB5
+/gate/Bone/vis/setColor white
+
+/gate/geometry/rebuild

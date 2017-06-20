@@ -1,0 +1,76 @@
+#=====================================================
+# PHYSICS - copied from RT example 6
+#=====================================================
+
+/gate/physics/addPhysicsList QBBC
+
+/gate/physics/Gamma/SetCutInRegion      world 1 mm
+/gate/physics/Electron/SetCutInRegion   world 1 mm
+/gate/physics/Positron/SetCutInRegion   world 1 mm
+
+/gate/physics/SetMaxStepSizeInRegion world .1 mm
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter deuteron
+/gate/physics/ActivateStepLimiter triton
+/gate/physics/ActivateStepLimiter alpha
+/gate/physics/ActivateStepLimiter GenericIon
+
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter e-
+
+# DOSE ACTOR
+
+/gate/actor/addActor DoseActor film1
+/gate/actor/film1/attachTo film1
+/gate/actor/film1/setPosition                   0.375 0. 0. cm
+/gate/actor/film1/setSize                       35. 12. 20 mm
+/gate/actor/film1/stepHitType random
+#/gate/actor/film1/SetVoxelSize 0.25 0.25 0.278 mm
+/gate/actor/film1/setResolution 140 48 1
+
+/gate/actor/film1/enableDose                    true
+/gate/actor/film1/enableDoseToWater             true
+/gate/actor/film1/enableEdep                    true
+/gate/actor/film1/enableNumberOfHits            true
+
+/gate/actor/film1/saveEveryNSeconds             60
+#/gate/actor/film1/save /media/sf_linux_share/Data/GATE_Simulations/wedge/film1.txt
+
+/gate/actor/addActor DoseActor film2
+/gate/actor/film2/attachTo film2
+/gate/actor/film2/setPosition                   0. 0. 0. cm
+/gate/actor/film2/stepHitType random
+/gate/actor/film2/setResolution 140 128 1
+
+/gate/actor/film2/enableDose                    true
+/gate/actor/film2/enableDoseToWater             true
+/gate/actor/film2/enableEdep                    true
+/gate/actor/film2/enableNumberOfHits            true
+
+/gate/actor/addActor DoseActor film3
+/gate/actor/film3/attachTo film3
+/gate/actor/film3/setPosition                   0.475 0. 0. cm
+/gate/actor/film3/setSize                       35. 16. 20 mm
+/gate/actor/film3/stepHitType random
+/gate/actor/film3/setResolution 140 64 1
+
+/gate/actor/film3/enableDose                    true
+/gate/actor/film3/enableDoseToWater             true
+/gate/actor/film3/enableEdep                    true
+/gate/actor/film3/enableNumberOfHits            true
+
+/gate/actor/film2/saveEveryNSeconds             60
+#/gate/actor/film2/save /media/sf_linux_share/Data/GATE_Simulations/wedge/film2.txt
+/gate/actor/film3/saveEveryNSeconds             60
+#/gate/actor/film3/save /media/sf_linux_share/Data/GATE_Simulations/wedge/film3.txt
+
+#  /gate/actor/addActor DoseActor test
+#  /gate/actor/test/setPosition                   12.5 0. 10. mm
+#  /gate/actor/test/setSize                       35.  50.  1. mm #.028 mm
+#  /gate/actor/test/setVoxelSize                     0.25 0.25 .028 mm
+#  /gate/actor/test/attachTo world
+#  /gate/actor/test/setResolution                 140  200  1
+#  /gate/actor/test/stepHitType                   random
+#  /gate/actor/test/enableEdep                    true
+#  /gate/actor/test/saveEveryNSeconds             60
+#  /gate/actor/test/save /media/sf_linux_share/Data/GATE_Simulations/wedge/test1.txt

@@ -22,26 +22,53 @@
 
 /gate/actor/addActor DoseActor Range
 
-/gate/actor/Range/attachTo Film
+/gate/actor/Range/attachTo Active
 /gate/actor/Range/setPosition                   0. 0. 0. cm
-/gate/actor/Range/stepHitType random
-/gate/actor/Range/setResolution 120 160 1
+/gate/actor/Range/stepHitType post
+/gate/actor/Range/setResolution 140 160 1
+
+#/gate/actor/Range/addFilter proton
 /gate/actor/Range/enableDose                    true
 /gate/actor/Range/enableDoseToWater             true
 /gate/actor/Range/enableEdep                    true
 /gate/actor/Range/enableNumberOfHits            true
-/gate/actor/Range/save ../results/phantom-80MeV-5cm-beam-defaultMaterials.txt
-#/gate/actor/Range/save ../results/film-test-80MeV-cylinders.mhd
 
 /gate/actor/Range/saveEveryNSeconds             60
 
+# PRODUCTIONANDSTOPPING ACTOR
+
+#/gate/actor/addActor ProductionAndStoppingActor Secondaries
+#/gate/actor/Secondaries/save /media/sf_linux_share/Data/GATE_Simulations/thin_film_tests/full_phantom-secondaries_high_stats.txt
+#/gate/actor/Secondaries/attachTo Active
+#/gate/actor/Secondaries/setResolution 120 160 1
+#/gate/actor/Secondaries/stepHitType post
+
+
 # DEFINE SOURCES
+
+#/gate/source/addSource beam
+#/gate/source/beam/gps/particle proton
+#/gate/source/beam/gps/ene/type Gauss
+#/gate/source/beam/gps/ene/mono 80 MeV
+#/gate/source/beam/gps/ene/sigma 2.3 MeV
+
+#/gate/source/beam/gps/angtype iso
+#/gate/source/beam/gps/mintheta 90. deg
+#/gate/source/beam/gps/maxtheta 90. deg
+#/gate/source/beam/gps/minphi 0. deg
+#/gate/source/beam/gps/maxphi 0. deg
+
+#/gate/source/beam/gps/type Plane
+#/gate/source/beam/gps/shape Circle
+#/gate/source/beam/gps/radius 2.5 cm
+
+#/gate/source/beam/gps/centre 15. 0. 0 cm
 
 /gate/source/addSource beam
 /gate/source/beam/gps/particle proton
-/gate/source/beam/gps/energytype Gauss
-/gate/source/beam/gps/energy 80 MeV
-/gate/source/beam/gps/sigmae 2.355 MeV
+/gate/source/beam/gps/ene/type Gauss
+/gate/source/beam/gps/ene/mono 80 MeV
+/gate/source/beam/gps/ene/sigma 2.3 MeV
 
 /gate/source/beam/gps/angtype iso
 /gate/source/beam/gps/mintheta 90. deg
@@ -51,6 +78,6 @@
 
 /gate/source/beam/gps/type Plane
 /gate/source/beam/gps/shape Circle
-/gate/source/beam/gps/radius 2.5 cm
+/gate/source/beam/gps/radius 7.5 cm
 
-/gate/source/beam/gps/centre 15. 0. 0 cm
+/gate/source/beam/gps/centre 0. 0. 0. cm

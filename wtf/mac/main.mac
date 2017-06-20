@@ -1,0 +1,20 @@
+#/control/execute visu0.mac
+/control/execute verbose.mac
+
+/control/execute volume_wedges.mac
+/control/execute physics_wedges.mac
+/control/execute normal_beam.mac
+
+#/gate/actor/addActor SimulationStatisticActor Stats
+#/gate/actor/Stats/saveEveryNSeconds             60
+#/gate/actor/Stats/save  /media/sf_linux_share/Data/GATE_Simulations/wedge/Stats.txt
+
+/gate/actor/film1/save /media/sf_linux_share/Data/GATE_Simulations/wedge/validation/image_1.txt
+/gate/actor/film2/save /media/sf_linux_share/Data/GATE_Simulations/wedge/validation/image_2.txt
+/gate/actor/film3/save /media/sf_linux_share/Data/GATE_Simulations/wedge/validation/image_3.txt
+
+
+/gate/application/setTotalNumberOfPrimaries 1000000
+/gate/output/allowNoOutput
+/gate/run/initialize
+/gate/application/start

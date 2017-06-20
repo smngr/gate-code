@@ -4,19 +4,13 @@
 
 /control/execute Geometry.mac
 
-/control/execute Sample_RibBone.mac
+/gate/application/setTotalNumberOfPrimaries 10000
 
-/gate/actor/Range/save                         /media/sf_Desktop/250MeV_PhantomMaterials.txt
-/gate/application/setTotalNumberOfPrimaries 100000
+/gate/source/beam/gps/energytype Mono
+/gate/source/beam/gps/monoenergy 127.2 MeV
+
+/control/execute Sample.mac
+
+/gate/actor/Range/save                         /media/sf_linux_share/Data/GATE_Simulations/RangeInWater/18112016/125MeV_Water_1.5cm_{mat}.txt
 /gate/run/initialize
 /gate/application/start
-
-#/gate/geometry/setIonisationPotential PVC 352.18 eV
-#/gate/actor/Range/save                          /media/sf_Desktop/stoppingpowers/PVC_I=352p18.txt
-#/gate/run/initialize
-#/gate/application/start
-
-#/gate/geometry/setIonisationPotential PMMA 123 eV
-#/gate/actor/Range/save                         /media/sf_Desktop/stoppingpowers/PMMA_RSP=1p09.txt
-#/gate/run/initialize
-#/gate/application/start
